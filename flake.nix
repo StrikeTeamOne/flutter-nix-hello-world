@@ -22,14 +22,16 @@
             buildInputs = with pkgs; [
               # from pkgs
               flutter
-              jdk11
+              jdk19
               #from ./nix/*
               android.platform-tools
             ];
 
             ANDROID_HOME = "${android.androidsdk}/libexec/android-sdk";
-            JAVA_HOME = pkgs.jdk11;
+            ANDROID_SDK_ROOT = "${android.androidsdk}/libexec/android-sdk";
+            JAVA_HOME = pkgs.jdk19;
             ANDROID_AVD_HOME = (toString ./.) + "/.android/avd";
+            CHROME_EXECUTABLE = "google-chrome-stable";
           };
       });
 }
